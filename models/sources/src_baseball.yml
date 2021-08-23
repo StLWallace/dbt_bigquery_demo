@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+    - name: baseball
+      project: bigquery-public-data
+      dataset: baseball
+      description: Public dataset of MLB games.
+      tables:
+        - name: games_post_wide
+          description: Game information. Unique record is [gameId, inningNumber, inningHalf, inningHalfEventSequenceNumber, atBatEventSequenceNumber, lineupOrder, lineupPosition, lineupPlayerId]
+          columns:
+            - name: gameId
+              description: A unique identifier for a particular game
+              tests:
+                - not_null
+            - name: inningNumber
+              description: Inning number for event.
+              tests: 
+                - not_null
+        - name: games_wide
+          description: Bigger table of game data
+        - name: schedules
+          description: Date, time, place for games
+          columns:
+            - name: gameId
+              description: Unique ID for a game
+              tests:
+                - not_null
+                - unique
+
