@@ -1,0 +1,5 @@
+version: 2
+
+models:
+    - name: is_metrics_by_game
+      description: "A contrived model that JOINs the schedule and games_wide tables and sums up all metrics starting with 'is'"

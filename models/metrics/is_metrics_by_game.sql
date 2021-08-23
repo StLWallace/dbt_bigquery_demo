@@ -1,3 +1,7 @@
+{{ config(
+    materialized = 'table'
+)}}
+
 SELECT sched.gameId
 ,sched.homeTeamName
 ,sched.awayTeamName
